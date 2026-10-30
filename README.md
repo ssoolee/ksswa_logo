@@ -6,6 +6,10 @@
 > 기획·조사·컨셉·조형·가이드라인·전개 계획이 모두 산출되었다.
 > 다음 단계는 조직 내부 절차이며, 착수 전 **선결 조건 7건**(아래 §선결 조건)을 확인해야 한다.
 
+**🌱 캐릭터 소개 페이지 → https://ksswa-logo.web.app**
+조형 원리·프로필·사용 규정·원본 파일 내려받기를 한 페이지에 담은 **시안**이다.
+소스는 `web/`, 배포는 Firebase Hosting(Spark). 배포 명령: `firebase deploy --only hosting`
+
 ---
 
 ## 확정 캐릭터 — 품싹 (Poomsak)
@@ -48,10 +52,17 @@ ksswa/
 │     ├─ poomsak-128.svg       중간 사이즈형 — 64–128px
 │     ├─ poomsak-48.svg        소형(프로필·썸네일) — 32–64px
 │     └─ poomsak-16.svg        파비콘·최소 식별형 — 16–32px
+├─ web/                        캐릭터 소개 페이지 (Firebase Hosting 배포 대상)
+│  ├─ index.html
+│  └─ assets/                  페이지에서 내려받는 SVG 4종 사본
 ├─ tools/
 │  └─ render-svg.sh            SVG → PNG 렌더링 검증 도구
+├─ firebase.json               Hosting 설정 (public: web)
+├─ .firebaserc                 기본 프로젝트: ksswa-logo
 └─ .claude/agents/             프로젝트 전용 에이전트 정의 4종
 ```
+
+> `.env`는 `.gitignore`로 제외되어 있다. **비밀값을 저장소에 커밋하지 않는다.**
 
 ### 문서 읽는 순서
 

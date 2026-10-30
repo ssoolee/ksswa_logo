@@ -18,3 +18,6 @@ desktop.ini
 # 렌더링 검증 산출물
 out*.png
 *.tmp.png
+
+# Playwright MCP 임시 산출물
+.playwright-mcp/
