@@ -41,7 +41,8 @@ ksswa/
 │  ├─ 03-컨셉-네이밍.md           컨셉 3안, 네이밍 12종, 최종 추천, 보이스&톤
 │  ├─ 04-디자인-스펙.md           제작 확정 스펙(As-Built) + 설계 변경 7건
 │  ├─ 05-활용-가이드라인.md       적용 규정, 금지 사례, 지회 확장 규칙
-│  └─ 06-전개-로드맵.md           굿즈·이모티콘·추진 일정·예산·거버넌스
+│  ├─ 06-전개-로드맵.md           굿즈·이모티콘·추진 일정·예산·거버넌스
+│  └─ 07-캐릭터-5안-비교.md       ★ Round 2 — 타 기관 레퍼런스 기반 대안 5종 비교
 ├─ assets/
 │  ├─ ci/                      공식 CI 원본 (ksswa.or.kr 다운로드)
 │  │  ├─ symbol.png
@@ -51,18 +52,25 @@ ksswa/
 │     ├─ poomsak-main.svg      기본형(마스터) — 128px 이상
 │     ├─ poomsak-128.svg       중간 사이즈형 — 64–128px
 │     ├─ poomsak-48.svg        소형(프로필·썸네일) — 32–64px
-│     └─ poomsak-16.svg        파비콘·최소 식별형 — 16–32px
+│     ├─ poomsak-16.svg        파비콘·최소 식별형 — 16–32px
+│     ├─ ai-upgrade/           품싹 AI 리터치 시안 (공식 자산 아님)
+│     └─ round2/               대안 5종 × 원안·채색안 10장 (공식 자산 아님)
 ├─ web/                        캐릭터 소개 페이지 (Firebase Hosting 배포 대상)
 │  ├─ index.html
 │  └─ assets/                  페이지에서 내려받는 SVG 4종 사본
 ├─ tools/
-│  └─ render-svg.sh            SVG → PNG 렌더링 검증 도구
+│  ├─ render-svg.sh            SVG → PNG 렌더링 검증 도구
+│  ├─ astra-upgrade.mjs        품싹 AI 리터치 생성 스크립트
+│  └─ round2-generate.mjs      대안 5종 생성·재채색 스크립트
 ├─ firebase.json               Hosting 설정 (public: web)
 ├─ .firebaserc                 기본 프로젝트: ksswa-logo
 └─ .claude/agents/             프로젝트 전용 에이전트 정의 4종
 ```
 
 > `.env`는 `.gitignore`로 제외되어 있다. **비밀값을 저장소에 커밋하지 않는다.**
+>
+> `ai-upgrade/`와 `round2/`의 PNG는 **AI 생성 시안이며 공식 자산이 아니다**(`05` §4-2 #15).
+> 공식 자산은 `poomsak-*.svg` 4종뿐이다. 각 폴더의 `README.md`에 사유가 적혀 있다.
 
 ### 문서 읽는 순서
 
@@ -73,6 +81,7 @@ ksswa/
 | 외부 업체에 발주 | `04` + `05` + SVG 원본 |
 | 굿즈·이모티콘 추진 | `06` |
 | 왜 이 캐릭터인지 설명 | `03` §3 → `02` §3-2 |
+| **대안 검토·의결 비교** | `07` (Round 2 — 품싹 외 5종 비교) |
 
 > **사이즈별 전용 파일을 쓴다.** 한 파일을 축소하면 외곽선이 함께 얇아져 소실된다. 축소될수록 외곽선이 굵어지도록 설계되어 있다.
 
