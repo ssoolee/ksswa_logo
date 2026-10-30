@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 126" width="16" height="16" role="img" aria-labelledby="t d">
+<title id="t">품싹 — 16px 파비콘형</title>
+<desc id="d">떡잎 2장, 품(빈 공간), 머리 윤곽만 남긴 최소 식별 단위. 얼굴 요소 전부 생략</desc>
+
+<!-- 떡잎 2장 : 좌우 비대칭이 유일한 식별 단서이므로 과장 -->
+<g fill="#AED136" stroke="#004B88" stroke-width="4" stroke-linejoin="round">
+  <path d="M30,54 C19,45 10,32 9,19 C8.5,12 14,9 19,14 C25,22 30,36 35,47 C37,51 33,55 30,54 Z"/>
+  <path d="M66,55 C72,47 80,41 86,43 C90,44.5 89,49 85,51.5 C80,54.5 73,58 69,62 C66.5,64 63,59 66,55 Z"/>
+</g>
+
+<!-- 머리 -->
+<circle cx="50" cy="40" r="23" fill="#BFD72F" stroke="#004B88" stroke-width="4"/>
+
+<!-- 몸통 -->
+<path d="M50,56 C62,56 69,63 70,72 C70.5,78 70,82 67,85 C64,88.5 57.5,90 50,90 C42.5,90 36,88.5 33,85 C30,82 29.5,78 30,72 C31,63 38,56 50,56 Z" fill="#95C93D" stroke="#004B88" stroke-width="4"/>
+
+<!-- 두 팔 = 품(빈 공간)을 만드는 요람 곡선 : 16px 최종 식별 요소 -->
+<path d="M33,73 C24,84 24,99 31.5,107 C36.5,112 46,113 53,111" fill="none" stroke="#004B88" stroke-width="16" stroke-linecap="round"/>
+<path d="M33,73 C24,84 24,99 31.5,107 C36.5,112 46,113 53,111" fill="none" stroke="#95C93D" stroke-width="9" stroke-linecap="round"/>
+<path d="M67,73 C76,84 76,99 68.5,107 C63.5,112 54,113 47,111" fill="none" stroke="#004B88" stroke-width="16" stroke-linecap="round"/>
+<path d="M67,73 C76,84 76,99 68.5,107 C63.5,112 54,113 47,111" fill="none" stroke="#54B947" stroke-width="9" stroke-linecap="round"/>
+</svg>

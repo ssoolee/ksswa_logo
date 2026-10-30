@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 134" width="48" height="64" role="img" aria-labelledby="t d">
+<title id="t">품싹 — 48px 축약형</title>
+<desc id="d">수첩·잎맥·볼·동공 하이라이트·흰색 보조 외곽선을 생략한 소형 사이즈 전용 버전</desc>
+<defs>
+  <linearGradient id="g48" x1="0" y1="59" x2="0" y2="89" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#BFD72F"/>
+    <stop offset="1" stop-color="#95C93D"/>
+  </linearGradient>
+  <mask id="x48" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="134">
+    <rect width="100" height="134" fill="#000"/>
+    <path d="M34,74 C26.5,84 26.5,98 33,105.5 C37.5,110.5 46,111.5 53,109.5" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+  </mask>
+</defs>
+
+<!-- 떡잎 2장 (좌우 비대칭 유지 : 최소 사이즈까지 생략 불가) -->
+<g stroke="#004B88" stroke-width="2.8" stroke-linejoin="round" fill="#AED136">
+  <path d="M32,61 C22,54 13,43 11,30 C10,23.5 14,20.5 18.5,23.5 C23,30 28,42 33,52 C35,56 34,60 32,61 Z"/>
+  <path d="M65,62 C70,56 77,51.5 82,52.5 C85,53 85,56.5 82,58.5 C78,61 72,63.5 68,66.5 C66,68 64,65 65,62 Z"/>
+</g>
+
+<!-- 몸통 -->
+<path d="M50,59 C61,59 67.5,64.5 68.8,72.5 C69.5,77.5 69,81 66.5,84 C64,87 57.5,88.5 50,88.5 C42.5,88.5 36,87 33.5,84 C31,81 30.5,77.5 31.2,72.5 C32.5,64.5 39,59 50,59 Z" fill="url(#g48)" stroke="#004B88" stroke-width="2.8" stroke-linejoin="round"/>
+
+<!-- 두 팔 = 요람 곡선 + 겹침색 (48px에서도 유지) -->
+<path d="M34,74 C26.5,84 26.5,98 33,105.5 C37.5,110.5 46,111.5 53,109.5" fill="none" stroke="#004B88" stroke-width="13.6" stroke-linecap="round"/>
+<path d="M34,74 C26.5,84 26.5,98 33,105.5 C37.5,110.5 46,111.5 53,109.5" fill="none" stroke="#95C93D" stroke-width="8" stroke-linecap="round"/>
+<path d="M66,74 C73.5,84 73.5,98 67,105.5 C62.5,110.5 54,111.5 47,109.5" fill="none" stroke="#004B88" stroke-width="13.6" stroke-linecap="round"/>
+<path d="M66,74 C73.5,84 73.5,98 67,105.5 C62.5,110.5 54,111.5 47,109.5" fill="none" stroke="#95C93D" stroke-width="8" stroke-linecap="round"/>
+<g mask="url(#x48)">
+  <path d="M66,74 C73.5,84 73.5,98 67,105.5 C62.5,110.5 54,111.5 47,109.5" fill="none" stroke="#54B947" stroke-width="8" stroke-linecap="round"/>
+</g>
+
+<!-- 머리 · 최소 얼굴 -->
+<circle cx="50" cy="44" r="21" fill="#BFD72F" stroke="#004B88" stroke-width="2.8"/>
+<ellipse cx="41" cy="44" rx="3.8" ry="4.8" fill="#004B88"/>
+<ellipse cx="59" cy="44" rx="3.8" ry="4.8" fill="#004B88"/>
+<path d="M44.5,53.5 Q50,57.5 55.5,53.5" fill="none" stroke="#004B88" stroke-width="3" stroke-linecap="round"/>
+
+<!-- 흙더미 1겹 -->
+<path d="M22,126 C22,117.5 34,114 50,114 C66,114 78,117.5 78,126 Z" fill="#939598" opacity="0.35"/>
+</svg>

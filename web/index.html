@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>품싹</title>
+<meta name="description" content="한국사회복지행정연구회 공식 캐릭터 품싹(Poomsak) 소개 · 조형 원리 · 사용 규정 · 원본 파일 내려받기">
+<link rel="icon" href="assets/poomsak-16.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<style>
+/* 레이아웃: 단일 세로 흐름. 좌측 정렬 본문 + 네이비 섹션 라벨.
+   컬러 토큰은 한사연 공식 CI 토큰(브리프 §2)만 사용하고, 중성색만 네이비 쪽으로 미세하게 기울였다. */
+:root{
+  --ks-navy:#004B88;
+  --ks-yellow:#FFDA00;
+  --ks-orange:#F8991C;
+  --ks-green:#AED136;
+  --ks-green-light:#BFD72F;
+  --ks-green-deep:#95C93D;
+  --ks-overlap:#54B947;
+
+  --bg:#FBFCFD;
+  --surface:#FFFFFF;
+  --surface-2:#F1F5F8;
+  --fg:#15243A;
+  --fg-muted:#4E6276;
+  --line:#D7E0E8;
+  --accent:var(--ks-navy);
+  --mark:#E8F0F6;
+
+  --font-display:"Gowun Batang","Nanum Myeongjo",Georgia,"Apple SD Gothic Neo",serif;
+  --font-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+
+  --step-0:1rem;
+  --step-1:1.15rem;
+  --step-2:1.45rem;
+  --step-3:2rem;
+  --step-4:clamp(2.4rem,6vw,3.4rem);
+
+  --wrap:60rem;
+  --read:38rem;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1826;
+    --surface:#152234;
+    --surface-2:#1B2B41;
+    --fg:#E8EEF5;
+    --fg-muted:#A3B5C8;
+    --line:#2A3D56;
+    --accent:#7FB6E6;
+    --mark:#1E3350;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1826;
+  --surface:#152234;
+  --surface-2:#1B2B41;
+  --fg:#E8EEF5;
+  --fg-muted:#A3B5C8;
+  --line:#2A3D56;
+  --accent:#7FB6E6;
+  --mark:#1E3350;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--fg);
+  font-family:var(--font-body);
+  font-size:var(--step-0);
+  line-height:1.75;
+  word-break:keep-all;
+  overflow-wrap:break-word;
+}
+img,svg{max-width:100%}
+a{color:var(--accent)}
+
+.wrap{
+  width:100%;
+  max-width:var(--wrap);
+  margin-inline:auto;
+  padding-left:max(20px,env(safe-area-inset-left,0px));
+  padding-right:max(20px,env(safe-area-inset-right,0px));
+}
+
+/* ── 섹션 ───────────────────────────── */
+section{padding-block:clamp(2.75rem,7vw,4.5rem);border-top:1px solid var(--line)}
+section:first-of-type{border-top:0}
+.label{
+  font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);font-weight:600;margin:0 0 .6rem;
+}
+h2{
+  font-family:var(--font-display);
+  font-size:var(--step-3);line-height:1.3;margin:0 0 .9rem;
+  text-wrap:balance;letter-spacing:-.01em;
+}
+h3{font-size:var(--step-1);margin:0 0 .4rem;font-weight:600}
+p{margin:0 0 1rem;max-width:var(--read)}
+.lede{font-size:var(--step-1);color:var(--fg-muted)}
+.note{font-size:.88rem;color:var(--fg-muted)}
+
+/* ── 히어로 ─────────────────────────── */
+.hero{
+  background:
+    radial-gradient(120% 90% at 50% 0%, var(--mark) 0%, transparent 62%),
+    var(--bg);
+  padding-block:clamp(2.5rem,7vw,4rem) clamp(2.5rem,7vw,4rem);
+}
+.hero-grid{display:grid;gap:clamp(1.5rem,4vw,3rem);align-items:center;grid-template-columns:1fr}
+@media (min-width:720px){.hero-grid{grid-template-columns:minmax(0,22rem) minmax(0,1fr)}}
+.hero-art{position:relative;margin-inline:auto;width:min(100%,20rem)}
+.hero-art svg{display:block;width:100%;height:auto}
+.eyebrow{font-size:.85rem;color:var(--fg-muted);margin:0 0 .5rem;letter-spacing:.02em}
+.name{
+  font-family:var(--font-display);
+  font-size:var(--step-4);line-height:1.05;margin:0 0 .15rem;letter-spacing:.06em;font-weight:700;
+}
+.name small{display:block;font-family:var(--font-body);font-size:.95rem;letter-spacing:.3em;color:var(--fg-muted);font-weight:500;margin-top:.5rem}
+.define{font-size:var(--step-2);font-family:var(--font-display);line-height:1.55;margin:1.25rem 0 1rem;max-width:26rem}
+.msg{
+  border-left:3px solid var(--ks-green);
+  padding:.1rem 0 .1rem 1rem;margin:1.25rem 0 0;
+  color:var(--fg-muted);max-width:28rem;
+}
+.msg b{color:var(--fg);font-weight:600}
+
+/* ── 요소별 가치 매핑 ────────────────── */
+.map{display:grid;gap:clamp(1.25rem,4vw,2.5rem);grid-template-columns:1fr;align-items:start}
+@media (min-width:820px){.map{grid-template-columns:minmax(0,20rem) minmax(0,1fr)}}
+.map-art{position:relative;width:min(100%,18rem);margin-inline:auto;position:sticky;top:1.5rem}
+.map-art .stage{position:relative}
+.map-art svg{display:block;width:100%;height:auto}
+.overlay{position:absolute;inset:0;pointer-events:none}
+.pin{opacity:0;transition:opacity .25s ease}
+.pin.on{opacity:1}
+.pin circle{fill:none;stroke:var(--ks-navy);stroke-width:1.6}
+.pin circle.halo{stroke:var(--ks-orange);stroke-width:4;opacity:.35}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .pin circle{stroke:#fff}}
+:root[data-theme="dark"] .pin circle{stroke:#fff}
+
+.parts{display:grid;gap:.5rem;list-style:none;margin:0;padding:0}
+.part{
+  display:grid;grid-template-columns:auto minmax(0,1fr);gap:.85rem;align-items:start;
+  width:100%;text-align:left;
+  background:var(--surface);color:inherit;font:inherit;
+  border:1px solid var(--line);border-radius:4px;
+  padding:.85rem 1rem;cursor:pointer;
+  transition:border-color .18s ease,background .18s ease;
+}
+.part:hover{border-color:var(--accent)}
+.part:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.part[aria-pressed="true"]{border-color:var(--accent);background:var(--mark)}
+.swatch{width:1rem;height:1rem;border-radius:50%;margin-top:.45rem;border:1px solid rgba(0,0,0,.18)}
+.part h3{margin:0 0 .15rem;font-size:1rem}
+.part p{margin:0;font-size:.92rem;color:var(--fg-muted);max-width:none}
+
+/* ── 표 ─────────────────────────────── */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:4px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:34rem;font-size:.93rem}
+th,td{text-align:left;padding:.7rem .9rem;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{background:var(--surface-2);font-weight:600;white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+td code{font-size:.88em;background:var(--surface-2);padding:.08em .35em;border-radius:3px}
+
+/* ── 불변 조건 ──────────────────────── */
+.rules{display:grid;gap:1rem;grid-template-columns:1fr;counter-reset:rule}
+@media (min-width:760px){.rules{grid-template-columns:repeat(3,1fr)}}
+.rule{
+  border:1px solid var(--line);border-top:3px solid var(--ks-overlap);
+  background:var(--surface);padding:1.1rem 1.15rem;border-radius:4px;
+}
+.rule .n{
+  font-family:var(--font-display);font-size:.95rem;color:var(--accent);
+  display:block;margin-bottom:.35rem;letter-spacing:.08em;
+}
+.rule h3{font-size:1.02rem;margin-bottom:.35rem}
+.rule p{margin:0;font-size:.92rem;color:var(--fg-muted);max-width:none}
+
+/* ── 프로필 ─────────────────────────── */
+.profile{display:grid;gap:0;border:1px solid var(--line);border-radius:4px;background:var(--surface);overflow:hidden}
+.row{display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:0;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.row dt{background:var(--surface-2);padding:.65rem .9rem;font-weight:600;font-size:.9rem}
+.row dd{margin:0;padding:.65rem .9rem;font-size:.95rem}
+@media (max-width:480px){.row{grid-template-columns:1fr}.row dt{border-bottom:1px solid var(--line)}}
+
+/* ── 말투 ───────────────────────────── */
+.voice{display:grid;gap:.75rem;grid-template-columns:1fr}
+@media (min-width:700px){.voice{grid-template-columns:1fr 1fr}}
+.say{
+  background:var(--surface);border:1px solid var(--line);border-radius:4px;
+  padding:1rem 1.1rem;
+}
+.say .ctx{font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-muted);margin:0 0 .4rem;font-weight:600}
+.say q{font-family:var(--font-display);font-size:1.05rem;line-height:1.7;quotes:"“" "”"}
+
+/* ── 다운로드 ───────────────────────── */
+.files{display:grid;gap:.75rem;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr))}
+.file{
+  display:block;text-decoration:none;color:inherit;
+  border:1px solid var(--line);border-radius:4px;background:var(--surface);
+  padding:1rem;transition:border-color .18s ease,transform .18s ease;
+}
+.file:hover{border-color:var(--accent);transform:translateY(-2px)}
+.file:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.file .thumb{display:grid;place-items:center;height:4.5rem;margin-bottom:.6rem}
+.file .thumb img{height:100%;width:auto}
+.file b{display:block;font-size:.95rem}
+.file span{display:block;font-size:.84rem;color:var(--fg-muted)}
+
+/* ── 금지 ───────────────────────────── */
+.dont{display:grid;gap:.6rem;grid-template-columns:1fr;list-style:none;padding:0;margin:0}
+@media (min-width:700px){.dont{grid-template-columns:1fr 1fr}}
+.dont li{
+  display:grid;grid-template-columns:1.4rem minmax(0,1fr);gap:.6rem;align-items:start;
+  background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--ks-orange);
+  border-radius:4px;padding:.75rem .9rem;font-size:.93rem;
+}
+.dont .x{color:var(--ks-orange);font-weight:700;text-align:center}
+
+/* ── 경고 상자 ──────────────────────── */
+.callout{
+  border:1px solid var(--line);border-left:3px solid var(--ks-navy);
+  background:var(--surface-2);border-radius:4px;padding:1rem 1.15rem;
+}
+.callout p{margin:0 0 .5rem;max-width:none;font-size:.93rem}
+.callout p:last-child{margin-bottom:0}
+
+/* ── 푸터 ───────────────────────────── */
+footer{border-top:1px solid var(--line);padding-block:2.25rem 3rem;color:var(--fg-muted);font-size:.88rem}
+footer p{max-width:none}
+footer a{color:var(--accent)}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ 히어로 ══════════ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-art">
+      <svg viewBox="0 0 100 134" role="img" aria-labelledby="heroTitle heroDesc">
+        <title id="heroTitle">품싹 (Poomsak)</title>
+        <desc id="heroDesc">비대칭 떡잎 2장과 두 팔이 아래에서 맞물려 만든 품(빈 공간)을 가진 새싹 캐릭터 정면 전신</desc>
+        <defs>
+          <linearGradient id="bodyGradA" x1="0" y1="59" x2="0" y2="89" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#BFD72F"/><stop offset="1" stop-color="#95C93D"/>
+          </linearGradient>
+          <mask id="armCrossA" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="134">
+            <rect x="0" y="0" width="100" height="134" fill="#000"/>
+            <path d="M34,74 C26.5,84 26.5,98 33,105.5 C37.5,110.5 46,111.5 53,109.5" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+          </mask>
+        </defs>
+        <g stroke="#fff" fill="#fff" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M32,61 C22,54 13,43 11,30 C10,23.5 14,20.5 18.5,23.5 C23,30 28,42 33,52 C35,56 34,60 32,61 Z"/>
+          <path d="M65,62 C70,56 77,51.5 82,52.5 C85,53 85,56.5 82,58.5 C78,61 72,63.5 68,66.5 C66,68 64,65 65,62 Z"/>
+          <path d="M50,59 C61,59 67.5,64.5 68.8,72.5 C69.5,77.5 69,81 66.5,84 C64,87 57.5,88.5 50,88.5 C42.5,88.5 36,87 33.5,84 C31,81 30.5,77.5 31.2,72.5 C32.5,64.5 39,59 50,59 Z"/>
+          <path d="M34,74 C26.5,84 26.5,98 33,105.5 C37.5,110.5 46,111.5 53,109.5" fill="none" stroke-width="13.8"/>
+          <path d="M66,74 C73.5,84 73.5,98 67,105.5 C62.5,110.5 54,111.5 47,109.5" fill="none" stroke-width="13.8"/>
+          <circle cx="50" cy="44" r="21"/>
+          <path d="M72,73 H80 A3.5,3.5 0 0 1 83.5,76.5 V85 A2.5,2.5 0 0 1 81,87.5 H72 A2.5,2.5 0 0 1 69.5,85 V75.5 A2.5,2.5 0 0 1 72,73 Z"/>
+        </g>
+        <g stroke="#004B88" stroke-width="2.2" stroke-linejoin="round" fill="#AED136">
+          <path d="M32,61 C22,54 13,43 11,30 C10,23.5 14,20.5 18.5,23.5 C23,30 28,42 33,52 C35,56 34,60 32,61 Z"/>
+          <path d="M65,62 C70,56 77,51.5 82,52.5 C85,53 85,56.5 82,58.5 C78,61 72,63.5 68,66.5 C66,68 64,65 65,62 Z"/>
+        </g>
+        <g fill="none" stroke="#004B88" stroke-linecap="round" opacity="0.45">
+          <path d="M31.5,58 C24,50.5 17,40 15.5,28.5" stroke-width="1.3"/>
+          <path d="M66,64 C70.5,58.5 76,55 80,54.5" stroke-width="1.3"/>
+          <path d="M74,53.5 C75.5,55.5 75,58 72.5,60.5" stroke-width="1.6" opacity="0.85"/>
+        </g>
+        <path d="M50,59 C61,59 67.5,64.5 68.8,72.5 C69.5,77.5 69,81 66.5,84 C64,87 57.5,88.5 50,88.5 C42.5,88.5 36,87 33.5,84 C31,81 30.5,77.5 31.2,72.5 C32.5,64.5 39,59 50,59 Z" fill="url(#bodyGradA)" stroke="#004B88" stroke-width="2.2" stroke-linejoin="round"/>
+        <path d="M34,74 C26.5,84 26.5,98 33,105.5 C37.5,110.5 46,111.5 53,109.5" fill="none" stroke="#004B88" stroke-width="11.4" stroke-linecap="round"/>
+        <path d="M34,74 C26.5,84 26.5,98 33,105.5 C37.5,110.5 46,111.5 53,109.5" fill="none" stroke="#95C93D" stroke-width="7" stroke-linecap="round"/>
+        <path d="M66,74 C73.5,84 73.5,98 67,105.5 C62.5,110.5 54,111.5 47,109.5" fill="none" stroke="#004B88" stroke-width="11.4" stroke-linecap="round"/>
+        <path d="M66,74 C73.5,84 73.5,98 67,105.5 C62.5,110.5 54,111.5 47,109.5" fill="none" stroke="#95C93D" stroke-width="7" stroke-linecap="round"/>
+        <g mask="url(#armCrossA)">
+          <path d="M66,74 C73.5,84 73.5,98 67,105.5 C62.5,110.5 54,111.5 47,109.5" fill="none" stroke="#54B947" stroke-width="7" stroke-linecap="round"/>
+        </g>
+        <path d="M67,68.5 C69,69.5 70.5,71 71.5,73" fill="none" stroke="#004B88" stroke-width="2" stroke-linecap="round"/>
+        <rect x="71" y="75.5" width="12" height="14.5" rx="2" fill="#FFDA00" stroke="#004B88" stroke-width="2.2"/>
+        <path d="M72,73 H80 A3.5,3.5 0 0 1 83.5,76.5 V85 A2.5,2.5 0 0 1 81,87.5 H72 A2.5,2.5 0 0 1 69.5,85 V75.5 A2.5,2.5 0 0 1 72,73 Z" fill="#F8991C" stroke="#004B88" stroke-width="2.2" stroke-linejoin="round"/>
+        <circle cx="50" cy="44" r="21" fill="#BFD72F" stroke="#004B88" stroke-width="2.2"/>
+        <circle cx="34.5" cy="52" r="4.5" fill="#F8991C" opacity="0.18"/>
+        <circle cx="65.5" cy="52" r="4.5" fill="#F8991C" opacity="0.18"/>
+        <ellipse cx="41" cy="44" rx="3.5" ry="4.5" fill="#004B88" transform="rotate(2 41 44)"/>
+        <ellipse cx="59" cy="44" rx="3.5" ry="4.5" fill="#004B88" transform="rotate(-2 59 44)"/>
+        <circle cx="42.3" cy="41.8" r="1.2" fill="#fff"/>
+        <circle cx="60.3" cy="41.8" r="1.2" fill="#fff"/>
+        <path d="M44.5,53.5 Q50,57 55.5,53.5" fill="none" stroke="#004B88" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M18,126 C18,117 31,113 50,113 C69,113 82,117 82,126 Z" fill="#939598" opacity="0.3"/>
+        <path d="M27,126 C27,119 37,116.5 50,116.5 C63,116.5 73,119 73,126 Z" fill="#939598" opacity="0.35"/>
+      </svg>
+    </div>
+
+    <div>
+      <p class="eyebrow">한국사회복지행정연구회 공식 캐릭터</p>
+      <h1 class="name">품싹<small>POOMSAK</small></h1>
+      <p class="define">아직 자라는 중인데, 이미 자기 떡잎으로 남을 덮어주고 있는 새싹.</p>
+      <p class="note"><b>품</b>(가슴으로 감싸 안은 자리) + <b>싹</b>(새싹). 한사연 CI가 가진 두 가지 의미 — 감싸 안음과 성장 — 을 한 조형에 그대로 받았습니다.</p>
+      <blockquote class="msg"><b>“당신이 매일 덮어준 만큼,<br>오늘은 당신이 덮일 차례입니다.”</b></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 요소별 가치 매핑 ══════════ -->
+<section>
+  <div class="wrap">
+    <p class="label">요소별 가치 매핑</p>
+    <h2>조형 하나하나가 설명을 갖고 있습니다</h2>
+    <p class="lede">항목을 누르면 캐릭터에서 해당 위치를 표시합니다.</p>
+
+    <div class="map">
+      <div class="map-art">
+        <div class="stage">
+          <img src="assets/poomsak-main.svg" alt="품싹 기본형" width="400" height="536">
+          <svg class="overlay" viewBox="0 0 100 134" aria-hidden="true">
+            <g class="pin" data-pin="leafL"><circle class="halo" cx="16" cy="30" r="9"/><circle cx="16" cy="30" r="9"/></g>
+            <g class="pin" data-pin="leafR"><circle class="halo" cx="77" cy="57" r="8"/><circle cx="77" cy="57" r="8"/></g>
+            <g class="pin" data-pin="poom"><circle class="halo" cx="50" cy="97" r="11"/><circle cx="50" cy="97" r="11"/></g>
+            <g class="pin" data-pin="overlap"><circle class="halo" cx="50" cy="110" r="7"/><circle cx="50" cy="110" r="7"/></g>
+            <g class="pin" data-pin="note"><circle class="halo" cx="76.5" cy="80" r="9"/><circle cx="76.5" cy="80" r="9"/></g>
+            <g class="pin" data-pin="face"><circle class="halo" cx="50" cy="48" r="14"/><circle cx="50" cy="48" r="14"/></g>
+            <g class="pin" data-pin="soil"><circle class="halo" cx="50" cy="120" r="12"/><circle cx="50" cy="120" r="12"/></g>
+          </svg>
+        </div>
+      </div>
+
+      <ul class="parts">
+        <li><button class="part" type="button" aria-pressed="false" data-target="leafL">
+          <span class="swatch" style="background:#AED136"></span>
+          <span><h3>왼쪽 떡잎 — 남을 덮는 잎</h3><p>길게 뻗어 머리 왼편까지 덮습니다. 아직 자라는 중인데도 먼저 그늘을 만들어 줍니다.</p></span>
+        </button></li>
+        <li><button class="part" type="button" aria-pressed="false" data-target="leafR">
+          <span class="swatch" style="background:#AED136"></span>
+          <span><h3>오른쪽 떡잎 — 자기를 감싸는 잎</h3><p>왼쪽의 절반 길이로 짧게, 자기 어깨 위에 접혀 내려앉아 있습니다. <b>이 좌우 비대칭이 「돌보는 사람을 돌본다」의 전부</b>입니다.</p></span>
+        </button></li>
+        <li><button class="part" type="button" aria-pressed="false" data-target="poom">
+          <span class="swatch" style="background:transparent;border:1px dashed var(--fg-muted)"></span>
+          <span><h3>품 — 두 팔이 만든 빈 공간</h3><p>CI 심볼에서 두 사람이 서로를 감싸 안은 요람 곡선을 그대로 받았습니다. 어떤 색으로도 채우지 않아, 어느 배경에서나 ‘안고 있는 자세’로 읽힙니다.</p></span>
+        </button></li>
+        <li><button class="part" type="button" aria-pressed="false" data-target="overlap">
+          <span class="swatch" style="background:#54B947"></span>
+          <span><h3>맞물림 지점 — <code>#54B947</code></h3><p>CI에서 두 인물의 몸이 겹치는 자리에 나타나는 딥그린입니다. <b>이 색이 CI 계승의 유일한 증거</b>이므로 어떤 파생물에서도 생략하지 않습니다.</p></span>
+        </button></li>
+        <li><button class="part" type="button" aria-pressed="false" data-target="note">
+          <span class="swatch" style="background:#F8991C"></span>
+          <span><h3>허리춤 수첩</h3><p>CI 오렌지 인물의 자리를 소품으로 이어받았습니다. 모서리가 닳아 있습니다. “적어두면 다음 사람이 덜 고생하니까요.”</p></span>
+        </button></li>
+        <li><button class="part" type="button" aria-pressed="false" data-target="face">
+          <span class="swatch" style="background:#004B88"></span>
+          <span><h3>네이비 외곽선과 조용한 입</h3><p>선 색은 CI 로고타입의 네이비입니다. 입은 활짝 웃지 않고 입꼬리만 올라갑니다. 과잉 긍정은 감정노동 직군에게 공허하게 읽힌다는 조사 판단에 따른 것입니다.</p></span>
+        </button></li>
+        <li><button class="part" type="button" aria-pressed="false" data-target="soil">
+          <span class="swatch" style="background:#939598"></span>
+          <span><h3>흙더미 — 다리가 없습니다</h3><p>두 팔 하단이 흙에 묻혀 있습니다. 걸어 다니는 캐릭터가 아니라 현장에 붙어 있는 새싹입니다.</p></span>
+        </button></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 3대 불변 조건 ══════════ -->
+<section>
+  <div class="wrap">
+    <p class="label">변경 금지</p>
+    <h2>이 세 가지가 깨지면 CI 계승이 성립하지 않습니다</h2>
+    <p class="lede">표정·자세·소품은 승인 절차를 거쳐 바꿀 수 있습니다. 아래 셋은 담당자 판단으로 바꿀 수 없고, 재심의 사항입니다.</p>
+    <div class="rules">
+      <div class="rule">
+        <span class="n">불변 조건 1</span>
+        <h3>떡잎 정확히 2장 · 좌우 비대칭</h3>
+        <p>3장 이상이면 CI의 ‘두 인물’ 대응 구조가 사라집니다. 좌우를 대칭으로 맞추면 “남 덮는 잎 / 나 덮는 잎” 설정이 소멸합니다.</p>
+      </div>
+      <div class="rule">
+        <span class="n">불변 조건 2</span>
+        <h3>두 팔이 맞물려 만든 품</h3>
+        <p>팔을 떼어 품을 열면 CI 요람 곡선이 사라집니다. 품은 비워 두어 배경이 비치게 합니다.</p>
+      </div>
+      <div class="rule">
+        <span class="n">불변 조건 3</span>
+        <h3>맞물림 색 <code>#54B947</code></h3>
+        <p>이 색이 없으면 CI와 무관한 새싹 그림이 됩니다. AI·EPS로 변환할 때 마스크가 손실되면 색이 사라지므로 변환 후 반드시 육안 확인합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 프로필 ══════════ -->
+<section>
+  <div class="wrap">
+    <p class="label">프로필</p>
+    <h2>품싹은 이런 새싹입니다</h2>
+    <dl class="profile">
+      <div class="row"><dt>이름</dt><dd>품싹 (Poomsak)</dd></div>
+      <div class="row"><dt>나이</dt><dd>서른아홉 번째 봄을 맞은 새싹 — 1987년 사회복지전문요원 최초 임용을 발아 연도로 삼습니다</dd></div>
+      <div class="row"><dt>키</dt><dd>두 뼘 반. 작년과 같습니다 (일부러 안 자랍니다)</dd></div>
+      <div class="row"><dt>고향</dt><dd>어느 주민센터 뒤편, 햇빛이 반나절만 드는 화단</dd></div>
+      <div class="row"><dt>성격</dt><dd>먼저 덮어준다 · 자기 어깨도 감싼다 · 기록벽 · 느린 결론 · 땅을 본다</dd></div>
+      <div class="row"><dt>특기</dt><dd>떡잎 접어 어깨 덮기 · 1년 전 대화를 수첩에서 3초 안에 찾기 · 아무것도 안 자란 땅 알아보기</dd></div>
+      <div class="row"><dt>약점</dt><dd>자기 이름을 큰 소리로 부르면 놀랍니다 · 뜨거운 걸 못 마십니다 · 아는 척을 못 합니다</dd></div>
+      <div class="row"><dt>좌우명</dt><dd><b>“덮어준 사람도 덮여야 합니다.”</b></dd></div>
+      <div class="row"><dt>주간 루틴</dt><dd>목요일 = 자기 잎에 물 주는 날. “목요일은 제 날이에요.”</dd></div>
+      <div class="row"><dt>생일</dt><dd>4월 11일 <span class="note">(제안값 — 조직 공식 자료 확인 후 확정)</span></dd></div>
+      <div class="row"><dt>성별</dt><dd>부여하지 않습니다</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ══════════ 말투 ══════════ -->
+<section>
+  <div class="wrap">
+    <p class="label">말투</p>
+    <h2>성과가 아니라 지속을 칭찬합니다</h2>
+    <p class="lede">해요체로 짧게 끊고, 도입구는 “오늘은요,”로 고정합니다. 지시하지 않고 옆에 섭니다. “최고예요!”, “파이팅!”은 쓰지 않습니다.</p>
+    <div class="voice">
+      <div class="say"><p class="ctx">공지 도입부</p><q>오늘은요, 꼭 보셨으면 하는 안내가 하나 있어요. 길지 않아요.</q></div>
+      <div class="say"><p class="ctx">고된 날</p><q>잘한 날이 아니어도 괜찮아요. 오늘은 버틴 날이에요. 그것도 하나예요.</q></div>
+      <div class="say"><p class="ctx">신규 임용자 환영</p><q>처음이라 땅이 단단하죠. 저도 오래 안 텄어요. 늦게 트는 게 잘못 트는 건 아니에요.</q></div>
+      <div class="say"><p class="ctx">퇴직 회원 예우</p><q>당신이 먼저 덮어줘서 지금 이 화단이 있어요. 이제는 그늘에 앉아 계세요. 제가 서 있을게요.</q></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 다운로드 ══════════ -->
+<section>
+  <div class="wrap">
+    <p class="label">원본 파일</p>
+    <h2>크기에 맞는 파일을 받아 쓰세요</h2>
+    <p class="lede">회원과 17개 시·도 지회는 신청 없이 자유롭게 사용합니다. <b>한 파일을 축소해서 쓰지 않습니다</b> — 외곽선이 같이 얇아져 사라집니다. 축소될수록 선이 굵어지도록 사이즈별로 따로 그렸습니다.</p>
+
+    <div class="files">
+      <a class="file" href="assets/poomsak-main.svg" download>
+        <span class="thumb"><img src="assets/poomsak-main.svg" alt=""></span>
+        <b>기본형 (마스터)</b><span>128px 이상 · SVG</span>
+      </a>
+      <a class="file" href="assets/poomsak-128.svg" download>
+        <span class="thumb"><img src="assets/poomsak-128.svg" alt=""></span>
+        <b>중간 사이즈형</b><span>64–128px · SVG</span>
+      </a>
+      <a class="file" href="assets/poomsak-48.svg" download>
+        <span class="thumb"><img src="assets/poomsak-48.svg" alt=""></span>
+        <b>소형</b><span>32–64px · 프로필·썸네일</span>
+      </a>
+      <a class="file" href="assets/poomsak-16.svg" download>
+        <span class="thumb"><img src="assets/poomsak-16.svg" alt=""></span>
+        <b>최소 식별형</b><span>16–32px · 파비콘</span>
+      </a>
+    </div>
+
+    <p class="label" style="margin-top:2.25rem">최소 크기와 여백</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>매체</th><th>최소 크기</th><th>사용 파일</th></tr></thead>
+        <tbody>
+          <tr><td>화면 (웹·앱·PPT)</td><td>가로 16px</td><td><code>poomsak-16.svg</code></td></tr>
+          <tr><td>화면 일반 사용</td><td>가로 48px 이상 권장</td><td><code>poomsak-48.svg</code></td></tr>
+          <tr><td>인쇄</td><td>가로 15mm</td><td><code>poomsak-48.svg</code> 조형</td></tr>
+          <tr><td>인쇄 일반 사용</td><td>가로 25mm 이상 권장</td><td><code>poomsak-main.svg</code></td></tr>
+          <tr><td>자수 (모자·점퍼)</td><td>가로 30mm 이상</td><td>단색 치환본</td></tr>
+          <tr><td>각인 (금속·아크릴)</td><td>가로 20mm 이상</td><td>단색 치환본</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note" style="margin-top:.9rem">사방 여백은 <b>표시 높이의 1/6 이상</b>을 비웁니다. 그 안에는 로고·글자·사진·테두리 무엇도 들어가지 않습니다. 16px 미만, 인쇄 15mm 미만에서는 캐릭터를 쓰지 않고 CI 심볼만 씁니다.</p>
+  </div>
+</section>
+
+<!-- ══════════ 금지 ══════════ -->
+<section>
+  <div class="wrap">
+    <p class="label">금지 사례</p>
+    <h2>이렇게는 쓰지 않습니다</h2>
+    <ul class="dont">
+      <li><span class="x">✕</span><span>떡잎을 3장 이상으로 늘리거나, 좌우를 대칭으로 맞추기</span></li>
+      <li><span class="x">✕</span><span>두 팔을 떼어 품을 열거나, 품을 색으로 채우기</span></li>
+      <li><span class="x">✕</span><span>맞물림 색 <code>#54B947</code> 생략</span></li>
+      <li><span class="x">✕</span><span>다리·발 추가 (확정 조형에는 다리가 없습니다)</span></li>
+      <li><span class="x">✕</span><span>계절·행사용 컬러 변주 (공식 토큰 외 색 사용)</span></li>
+      <li><span class="x">✕</span><span>검정 외곽선 (공식 외곽선은 네이비입니다)</span></li>
+      <li><span class="x">✕</span><span>가로세로 비율 왜곡 · 기울이기 · 회전</span></li>
+      <li><span class="x">✕</span><span>그림자·입체 베벨·네온 등 효과 추가</span></li>
+      <li><span class="x">✕</span><span>CI 심볼에 얼굴을 붙이거나 늘리기</span></li>
+      <li><span class="x">✕</span><span>정당·선거·정책 찬반 캠페인에 사용</span></li>
+      <li><span class="x">✕</span><span>민원인·국민을 부정적으로 묘사한 장면에 등장</span></li>
+      <li><span class="x">✕</span><span>서류더미·과로·탈진 묘사</span></li>
+      <li><span class="x">✕</span><span>AI 생성 이미지로 품싹을 재현해 공식 사용</span></li>
+      <li><span class="x">✕</span><span>지회 전용 캐릭터를 따로 만들기</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════ 지회 ══════════ -->
+<section>
+  <div class="wrap">
+    <p class="label">17개 시·도 지회</p>
+    <h2>지회는 조형을 바꾸지 않고 명판만 붙입니다</h2>
+    <p class="lede">지회마다 캐릭터를 따로 만들면 정체성이 흩어집니다. 공식 파일 그대로 쓰고, 아래나 옆에 <b>「한사연 ○○○지회」</b> 글자만 붙입니다.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>구분</th><th>지회 자율</th><th>사무처 승인</th></tr></thead>
+        <tbody>
+          <tr><td>공식 4종 파일 그대로 사용</td><td>○</td><td>—</td></tr>
+          <tr><td>명판 병기</td><td>○</td><td>—</td></tr>
+          <tr><td>지회 행사 현수막·안내물</td><td>○</td><td>—</td></tr>
+          <tr><td>비판매 굿즈 소량 제작 (100개 이하)</td><td>○ (사후 보고)</td><td>—</td></tr>
+          <tr><td>표정·자세 변주, 소품 추가</td><td>✕</td><td>필요</td></tr>
+          <tr><td>판매용 굿즈 제작</td><td>✕</td><td>필요</td></tr>
+          <tr><td>지회 전용 캐릭터 신규 개발</td><td colspan="2">✕ 전면 금지</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note" style="margin-top:.9rem">명판은 네이비 <code>#004B88</code> 단색, 캐릭터 폭의 1.2배 이내, 여백 바깥에 둡니다. 지역 모티프는 캐릭터가 아니라 배경·소품 일러스트로 처리합니다.</p>
+  </div>
+</section>
+
+<!-- ══════════ 미확정 ══════════ -->
+<section>
+  <div class="wrap">
+    <p class="label">확인 중인 사항</p>
+    <h2>아직 확정되지 않은 것들</h2>
+    <div class="callout">
+      <p><b>Pantone·CMYK 지정값은 미확정입니다.</b> 이 페이지의 HEX 값은 공식 심볼 PNG를 픽셀 샘플링해 얻은 디지털 기준값입니다. 인쇄 발주 전에 색상 교정을 거쳐야 합니다.</p>
+      <p><b>「품싹」 상표는 아직 출원 전입니다.</b> 중복 조사는 웹 공개정보 기준 1차 스크리닝이며, KIPRIS 정식 선행조사가 선행되어야 합니다.</p>
+      <p><b>생일 4월 11일은 제안값입니다.</b> 조직 창립일과 1987년 최초 임용 월·일 공식 자료를 확인한 뒤 확정합니다.</p>
+      <p class="note">본 페이지는 조직 의결 전 단계의 <b>시안</b>입니다. 채택·예산·회칙 반영은 대의원총회 의결 사항입니다.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><b>품싹 (Poomsak)</b> — 한국사회복지행정연구회 공식 캐릭터 (시안)</p>
+    <p>캐릭터는 기존 CI를 대체하지 않는 보조 자산이며, CI와 병기·공존합니다. 공문 발신 명의·직인 영역에는 사용하지 않습니다.</p>
+    <p>세부 규정은 활용 가이드라인, 조형 수치는 디자인 스펙 문서를 따릅니다. · <a href="https://ksswa.or.kr" target="_blank" rel="noopener">ksswa.or.kr</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('.part'));
+  var pins = Array.prototype.slice.call(document.querySelectorAll('.pin'));
+
+  function show(key){
+    pins.forEach(function(p){
+      p.classList.toggle('on', p.getAttribute('data-pin') === key);
+    });
+    buttons.forEach(function(b){
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-target') === key));
+    });
+  }
+  function clear(){
+    pins.forEach(function(p){ p.classList.remove('on'); });
+    buttons.forEach(function(b){ b.setAttribute('aria-pressed','false'); });
+  }
+
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var key = btn.getAttribute('data-target');
+      if (btn.getAttribute('aria-pressed') === 'true') { clear(); } else { show(key); }
+    });
+    btn.addEventListener('mouseenter', function(){
+      if (document.querySelector('.part[aria-pressed="true"]')) return;
+      pins.forEach(function(p){ p.classList.toggle('on', p.getAttribute('data-pin') === btn.getAttribute('data-target')); });
+    });
+    btn.addEventListener('mouseleave', function(){
+      if (document.querySelector('.part[aria-pressed="true"]')) return;
+      pins.forEach(function(p){ p.classList.remove('on'); });
+    });
+  });
+})();
+</script>
+</body>
+</html>
